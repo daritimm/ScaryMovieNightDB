@@ -1,0 +1,32 @@
+<%- include('partials/header') -%>
+
+<br />
+<br />
+<div class="uploadTitle">
+<p>
+    <h3>Upload a Gif for a Movie in the Database!</h3>
+    </p>
+    <br />
+    <br />
+</div>
+
+    <div class="uploadSection">
+       
+
+        <label id="whichMovie">For which movie?</label>
+        <form action="/movies/upload" enctype="multipart/form-data" method="POST">
+            <select name="title" class="field-long">
+                <% movies.forEach((movies) => { %>
+                <option value="<%= movies.title %>"><%= movies.title %></option>
+                <% }); %>
+            </select>
+            <br />
+            <br />
+            <input name="picture" id="picture" type="file" />
+            <!-- <label id="picturesubmit" for="picture">Pick Your Picture!</label> -->
+            <input type="submit" id="submitPicture" value="Click To Upload Image" />
+        </form>
+    </div>
+
+
+<%- include('partials/footer') -%>

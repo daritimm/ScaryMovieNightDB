@@ -1,0 +1,35 @@
+<%- include('partials/header') -%>
+
+<br />
+<br />
+<div>
+    <p>
+    <h3>A gif a day keeps the horror away.</h3>
+    </p>
+    <br />
+    <br />
+    <% movies.forEach(movie => { %>
+
+        <% if(movie.pictureUrl){ %>
+
+        <img src="<%= movie.pictureUrl %>">
+        <br />
+        <i><%= movie.title %></i>
+
+    <br />
+    <form action="/delete/<%= movie.pictureUrl %>?_method=DELETE" method="POST"></form>
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" >Delete Picture</button>
+        </form>
+    <br />
+    <br />  
+         <% } %>
+    <% }); %>
+
+<br />
+<br />
+<a href='/movies'>Go Back</a>
+</div>
+
+
+<%- include('partials/footer') -%>

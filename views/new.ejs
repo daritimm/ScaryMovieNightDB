@@ -1,0 +1,23 @@
+<%- include('partials/header') -%>
+<div class="container mt-5 w-50" id="newMovie">
+
+    <h2 class="mb-4">Add New Movie</h2>
+
+    <form action="/movies/new" method="POST">
+        <input type="text" name="title" class="form-control" placeholder="Movie Title">
+
+        <input type="text" name="smn" class="form-control" placeholder="ScaryMovieNight Rating">
+
+        <input type="text" name="rtc" class="form-control" placeholder="Rotten Critic Rating">
+
+        <input type="text" name="mtc" class="form-control" placeholder="Metacritic Rating">
+
+        <input type="text" name="imdb" class="form-control" placeholder="IMDB Movie Rating">
+
+        <input type="text" name="comments" class="form-control" placeholder="Comments">
+
+        <button type="submit" class="btn btn-danger btn-block mt-3 form-control">Add to Database</button>
+
+    </form>
+</div>
+<%- include('partials/footer') -%>

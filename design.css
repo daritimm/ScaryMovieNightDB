@@ -1,0 +1,27 @@
+.field-long{
+    width: 50%;
+}
+
+.entire-page {
+    padding: 50px;
+    border: 5px solid black;    
+}
+
+.picturesubmit {
+    color: red;
+    border: 5px solid black;
+    background-color: aqua;
+}
+
+.uploadSection {
+    background-color: red;
+}
+
+.new-movie-title {
+    width: 25%;
+
+}
+
+head {
+    text-align: center;
+}

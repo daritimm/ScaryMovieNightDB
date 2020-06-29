@@ -1,0 +1,49 @@
+<%- include('partials/header') -%>
+
+    <div class="container mt-5">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>SMN</th>
+                    <th>RTC</th>
+                    <th>MTC</th>
+                    <th>IMDB</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% movies.forEach(movie => { %>
+                <tr>
+                    <td><%= movie.title %></td>
+                    <td><%= movie.smn %></td>
+                    <td><%= movie.rtc %></td>
+                    <td><%= movie.mtc %></td>
+                    <td><%= movie.imdb %></td>
+                    <td><%= movie.comments %></td>
+                    <td>
+                        <a class="btn btn-primary" href="/movies/edit/<%= movie.title %>">Edit</a>
+                        <form style="display: inline;" action="/movies/delete/<%= movie._id %>?method=DELETE" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button style="cursor: pointer;" type="submit"
+                                class="btn btn-danger ml-2">Delete</button></button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Title</th>
+                    <th>SMN</th>
+                    <th>RTC</th>
+                    <th>MTC</th>
+                    <th>IMDB</th>
+                    <th>Comments</th>
+                </tr>
+            </tfoot>    
+        </table>
+    </div>
+
+<%- include('partials/footer') -%>

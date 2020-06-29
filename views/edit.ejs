@@ -1,0 +1,23 @@
+<%- include('partials/header') -%>
+
+<div class="container mt-5 w-50">
+
+    <h2 class="mb-4">Update Movie Data</h2>
+
+    <form action="/movies/edit/<%= movies.title %>?_method=PUT" method="PUT">
+        <input type="hidden" name="_method" value="PUT">
+        
+        <input type="text" value="<%= movies.title %>" name="title" class="form-control" placeholder="Movie Title">
+
+        <input type="text" value="<%= movies.rtc %>" name="rtc" class="form-control" placeholder="RottenTomatoes Critic Rating">
+
+        <input type="text" value="<%= movies.rta %>" name="rta" class="form-control" placeholder="RottenTomatoes Audience Rating">
+
+        <input type="text" value="<%= movies.imdb %>" name="imdb" class="form-control" placeholder="IMDB Movie Rating">
+
+        <button type="submit" class="btn btn-danger btn-block mt-3">Update Movie</button>
+
+    </form>
+</div>
+
+<%- include('partials/footer') -%>

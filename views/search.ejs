@@ -1,0 +1,56 @@
+<%- include('partials/header') -%>
+
+<div class="container mt-5 w-50">
+
+    <h2 class="mb-4">Search Movie</h2>
+
+    <form action="/movies/search" method="POST">
+        <input type="text" name="title" class="searchbar" placeholder="Movie Title">
+        <br>
+        <br>
+        <label><i>Optional</i></label>
+        <br>
+        <input type="number" name="year" class="searchbar" placeholder="Year of Release">
+
+        <button type="submit" class="searchbar btn btn-danger btn-block mt-3">Search</button>
+
+    </form>
+
+    <h4 class="text-danger my-4">Search Results: </h4>
+    <table class="table table-bordered" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Year</th>
+                <th>RTC</th>
+                <th>MTC</th>
+                <th>IMDB</th>
+                <th>Runtime</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% if(movies) { %>
+            <tr>
+                <td><%= movies.title %></td>
+                <td><%= movies.year %></td>
+                <td><%= movies.rtc %></td>
+                <td><%= movies.mtc %></td>
+                <td><%= movies.imdb %></td>
+                <td><%= movies.runtime %></td>
+            </tr>
+            <% } %>
+        </tbody>
+     
+    </table>
+
+    <% if(movies == undefined) { %>
+
+    <div class="alert alert-danger mt-4">Your movie wasn't found.</div>
+
+    <% } %>
+
+</div>
+
+
+<%- include('partials/footer') -%>
