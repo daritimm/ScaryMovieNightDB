@@ -130,7 +130,7 @@ router.post('/movies/search', (req, res) => {
         };
 
         let data = JSON.parse(body);
-        console.log("API data: " + data)
+        console.log(data)
 
         let titleData, yearData, imdbData, rtcData, mtcData, runtimeData;
 
