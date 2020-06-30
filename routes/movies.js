@@ -33,7 +33,7 @@ router.get('/movies/index', (req, res) => {
             res.render('index', { movies: movies })
         })
         .catch(err => {
-            res.status(500).send({error:err})
+            res.status(500).send({error: "Movie.find error on get movies/index: " + err})
         })
 });
 
@@ -58,7 +58,7 @@ router.post('/movies/new', (req, res) => {
             res.redirect('/movies/index')
         })
         .catch(err => {
-            res.status(500).send({error:err})
+            res.status(500).send({error: "Movie.create error on post movies/new: " + err})
         })
 });
 
@@ -73,7 +73,7 @@ router.get('/movies/edit/:title', (req, res) => {
             res.render('edit', {movies: movies})
         })
         .catch(err => {
-            res.status(500).send({error:err})
+            res.status(500).send({error: "Movie.findOne error on get movies/edit: " + err})
         });
 });
 
@@ -94,7 +94,7 @@ router.put('/movies/edit/:title', (req, res) => {
             res.redirect('/movies')
         })
         .catch(err => {
-            res.status(500).send({error:err})
+            res.status(500).send({error: "Movie.findOneAndUpdate error on put movies/edit: " + err})
         });
 });
 
@@ -130,7 +130,7 @@ router.post('/movies/search', (req, res) => {
         };
 
         let data = JSON.parse(body);
-        console.log(data)
+        console.log("API data: " + data)
 
         let titleData, yearData, imdbData, rtcData, mtcData, runtimeData;
 
@@ -214,7 +214,7 @@ router.post('/movies/delete/:id', (req, res) => {
             res.redirect('/movies')
         })
         .catch(err => {
-            res.status(500).send({error:err})       
+            res.status(500).send({error: "Movie.findOneAndDelete error on post movies/delete: " + err})       
         });
 });
 
@@ -259,7 +259,7 @@ router.get('/movies/upload', (req, res) => {
             res.render('upload', { movies: movies })
         })
         .catch(err => {
-            res.status(500).send({error:err})
+            res.status(500).send({error: "Movie.find error on get movies/upload: " + err})
         });
     
 });
@@ -292,7 +292,7 @@ router.post('/movies/upload', upload.single('picture'), (req, res, next) => {
                 })
             })
         .catch(err => {
-            res.status(500).send({error:err})
+            res.status(500).send({error: "Movie.findOne error on post movies/upload: " + err})
         });
 
 });
@@ -307,7 +307,7 @@ router.get('/movies/pictures', (req, res) => {
             res.render('pictures', { movies: picture })
         })
         .catch(err => {
-            res.status(500).send({error:err})
+            res.status(500).send({error: "Movie.find error on get movies/pictures: " + err})
         });
 })
 
