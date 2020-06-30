@@ -39,8 +39,7 @@ mongoose.connect(uri, {
 });
 
 mongoose.connection.on('error', err => {
-    console.log('connection:' + connection)
-    console.log('error:' + err);
+    console.log('mongoose error:' + err);
   });
 
 app.set('views', path.join(__dirname, 'views'));
