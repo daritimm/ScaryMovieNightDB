@@ -10,8 +10,7 @@ const methodOverride = require('method-override');
 const multer = require('multer');
 
 
-mongoose.connect('mongodb+srv://daritimm:VrGuv3DSJcXQ8FQ@cluster0-sya2h.mongodb.net/ScaryMovieNightretryWrites=true&w=majority', {
-// mongoose.connect('mongodb://localhost:27017/ScaryMovieNight', { 
+mongoose.connect(process.env_DATABASE, {
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
     useCreateIndex: true,
