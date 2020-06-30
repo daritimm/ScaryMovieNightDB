@@ -1,3 +1,5 @@
+'use strict'
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -9,8 +11,11 @@ const movieRoutes = require('./routes/movies');
 const methodOverride = require('method-override');
 const multer = require('multer');
 
+dotenv.config({path: './config.env' });
 
-mongoose.connect(process.env_DATABASE, {
+let uri = process.env.DATABASE
+
+mongoose.connect(uri, {
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
     useCreateIndex: true,
@@ -23,7 +28,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
-dotenv.config({path: '/.config.env' });
+
 
 
 app.use(movieRoutes);
