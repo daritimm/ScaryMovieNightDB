@@ -27,7 +27,6 @@ app.use(methodOverride('_method'));
 dotenv.config({path: '/.config.env' });
 
 
-
 app.use(movieRoutes);
 
 

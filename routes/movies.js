@@ -95,7 +95,9 @@ router.put('/movies/edit/:title', (req, res) => {
         });
 });
 
-
+router.get('/', (req, res) => {
+    res.render('search', {movies: " "})
+});
 
 router.get('/movies', (req, res) => {
     res.render('search', {movies: " "})
