@@ -6,7 +6,6 @@ const request = require('request');
 const router = express.Router();
 const mongoose = require('mongoose');
 const multer = require('multer');
-// const methodOverride = require('method-override');
 
 let Schema = mongoose.Schema;
 
@@ -18,10 +17,14 @@ let movieSchema = new Schema({
     imdb: String,
     comments: String,
     pictureUrl: String
-});
+    }, {
+        bufferCommands: false,
+        autoCreate: false
+    });
 
 
 let Movie = mongoose.model('Movie', movieSchema);
+Movie.createCollection();
 
 router.get('/movies/index', (req, res) => {
 
